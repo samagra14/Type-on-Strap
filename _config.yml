@@ -17,7 +17,7 @@ theme_settings:
   header_text: > #two or three lines to describe your site
      <p>Hello Friend</p>
   header_text_feature_image: assets/img/pexels/triangular.jpeg
-  footer_text:
+  footer_text: Glad to have met you.
   # Icons
   rss: true  # Make sure you created a feed.xml with feed.xml layout
   email_address: samagra14@gmail.com # Full email address, e.g. "sam@example.com"
