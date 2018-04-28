@@ -1,8 +1,8 @@
 # SITE CONFIGURATION
-baseurl: "/Type-on-Strap"
-url: "https://sylhare.github.io"
-title: Type on Strap # site's title
-description: "A website with blog posts and pages" # used by search engines
+baseurl: "/blog"
+url: "https://samagra14.github.io"
+title: The solitary reaper # site's title
+description: "My life in general" # used by search engines
 
 
 # THEME-SPECIFIC CONFIGURATION
@@ -11,48 +11,46 @@ theme_settings:
   title: Type on Strap # blog's title
   avatar: assets/img/triangle.svg
   favicon: assets/favicon.ico
-  gravatar: # Email MD5 hash
+  gravatar: CFC919D7671DD101B036109961CA2297 # Email MD5 hash
 
   # Header and footer text
   header_text: > #two or three lines to describe your site
-     <p>Change header text in <code>_config.yml</code> <br> to update this feature.</p>
+     <p>Hello Friend</p>
   header_text_feature_image: assets/img/pexels/triangular.jpeg
-  footer_text: >
-   Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
-
+  footer_text:
   # Icons
   rss: true  # Make sure you created a feed.xml with feed.xml layout
-  email_address: # Full email address, e.g. "sam@example.com"
+  email_address: samagra14@gmail.com # Full email address, e.g. "sam@example.com"
   behance:
   bitbucket:
   dribbble:
-  facebook:
+  facebook: "samagra.sharma"
   flickr:
   gitlab:
-  github: "sylhare"
+  github: "samagra14"
   google_plus:
-  instagram:
+  instagram: https://www.instagram.com/samagra14/
   keybase:
-  linkedin:  # Full URL
+  linkedin: https://www.linkedin.com/in/samagra-sharma-4476bb135/  # Full URL
   pinterest:
   reddit:
   soundcloud:
   stack_exchange:  # Full URL
   steam:
   tumblr:
-  twitter: # "twitter username"
+  twitter: https://twitter.com/samagra_sharma # "twitter username"
   vimeo:
   wordpress:
   youtube:
 
-  # Scripts / Features 
-  google_analytics: # Tracking ID, e.g. "UA-000000-01"
+  # Scripts / Features
+  google_analytics: "UA-118352996-1"
   disqus_shortname:
   katex: true # Enable if using math markup
   portfolio: true
   search: true
   tags: true
-  
+
   # Localization strings
   str_follow_on: "Follow on"
   str_rss_follow: "Follow RSS feed"
@@ -70,7 +68,7 @@ theme_settings:
 
   # Post navigation
   post_navigation: true
-  
+
 
 # PAGINATION
 paginate: 5
