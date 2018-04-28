@@ -45,7 +45,7 @@ theme_settings:
 
   # Scripts / Features
   google_analytics: "UA-118352996-1"
-  disqus_shortname:
+  disqus_shortname: "samagra14"
   katex: true # Enable if using math markup
   portfolio: true
   search: true
