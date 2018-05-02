@@ -5,6 +5,8 @@ subtitle: "The algorithm for a better plan"                    # A subtitle can 
 tags: [gsoc,aimacode,artificial intelligence]
 ---
 The coding period has begun. Well, not officially but I have started to do my work. Mainly because I just cannot wait for this awesome phase to begin with.
+<!--more-->
+
 So the first task on my plate is to program intelligent planning algorithms. I started out with laying out a structure for the Action Schema. It is a PDDL representation of the actions that can be taken in a particular state by an agent. PDDL stands for Planning Domain Definition Language. An action schema is a lifted representation of actions. For example here is an action schema for flying a plane from one location to another:
 
 Action( Fly(p,from,to),<br>
