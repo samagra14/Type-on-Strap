@@ -1,0 +1,9 @@
+<p>Finally, my exams are over and I can devote my full time to AIMA. In the previous post, I had begun to work on Intelligent Planning Algorithms. In this post I will continue my work on the same.
+<!--more--></p>
+
+<p>In the last blog I programmed states and Action schemas as collection of atomis sentences. Well, I will now change them to Literals so as to provide a better functionality. The next job is to check that whether a given action <code class="highlighter-rouge">a</code> is applicable in a given state <code class="highlighter-rouge">s</code>. We say that ‘a’ is applicable in ‘s’ if the preconditions are satisfied by s. Since both the preconditions and state is a list of literals, therefore we check if the state list contains the literals present in the preconditions.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">boolean</span> <span class="nf">isApplicable</span><span class="o">(</span><span class="n">State</span> <span class="n">s</span><span class="o">,</span> <span class="n">ActionSchema</span> <span class="n">a</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="na">getFluents</span><span class="o">().</span><span class="na">containsAll</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">getPrecondition</span><span class="o">());</span>
+    <span class="o">}</span>
+</code></pre></div></div>

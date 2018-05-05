@@ -1,0 +1,43 @@
+<p>The coding period has begun. Well, not officially but I have started to do my work. Mainly because I just cannot wait for this awesome phase to begin with.
+<!--more--></p>
+
+<p>So the first task on my plate is to program intelligent planning algorithms. I started out with laying out a structure for the Action Schema. It is a PDDL representation of the actions that can be taken in a particular state by an agent. PDDL stands for Planning Domain Definition Language. An action schema is a lifted representation of actions. For example here is an action schema for flying a plane from one location to another:</p>
+
+<p>Action( Fly(p,from,to),<br />
+    PRECOND: At(p,from) <script type="math/tex">\land</script> Plane(p) <script type="math/tex">\land</script> Airport(from) <script type="math/tex">\land</script> Airport(to),<br />
+      EFFECT: <script type="math/tex">\neg</script> At(p,from) <script type="math/tex">\land</script> At(p,to))</p>
+
+<p>The schema consists of an action name, a list of all the variables used in the schema, a precondition and an effect. Hence I came up with the following items to represent an action:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Term</span><span class="o">&gt;</span> <span class="n">variables</span><span class="o">;</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">AtomicSentence</span><span class="o">&gt;</span> <span class="n">precondition</span><span class="o">;</span> <span class="c1">//treated as a conjunction of fluents</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">AtomicSentence</span><span class="o">&gt;</span> <span class="n">effects</span><span class="o">;</span><span class="c1">//treated as a conjunction of fluents</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">AtomicSentence</span><span class="o">&gt;</span> <span class="n">effectsPositiveLiterals</span><span class="o">;</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">AtomicSentence</span><span class="o">&gt;</span> <span class="n">effectsNegativeLiterals</span><span class="o">;</span>
+</code></pre></div></div>
+<p>The <code class="highlighter-rouge">AtomicSentence</code> interface was already present in the first order logic implementations. The terms in an action schema can include both constants as well as variables.</p>
+
+<p>The action object is simply an ActionSchema in which all the Terms are constants.</p>
+
+<p>Now we need to define a state for PDDL. Each state is represented as a conjunction of fluents that are ground functionless atoms. So state is simply a list of AtomicSentances which are assumed to be in the conjunctive form.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">State</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">AtomicSentence</span><span class="o">&gt;</span> <span class="n">fluents</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The result of executing an Action <code class="highlighter-rouge">a</code> in state <code class="highlighter-rouge">s</code> is defined as a state <code class="highlighter-rouge">s'</code> which is represented by the set of fluents, formed by starting with <code class="highlighter-rouge">s</code>, removing the fluents that appear as negative literals in the action’s effects and adding the fluents that are positive literals in the action’s effects.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">State</span> <span class="nf">result</span><span class="o">(</span><span class="n">State</span> <span class="n">s</span><span class="o">,</span> <span class="n">ActionSchema</span> <span class="n">a</span><span class="o">){</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">fluents</span><span class="o">.</span><span class="na">removeAll</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">getEffectsNegativeLiterals</span><span class="o">());</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">fluents</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">getEffectsPositiveLiterals</span><span class="o">());</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+<p>Finally, we have to define the structure for a specific problem. A problem consists of an initial state, a set of <code class="highlighter-rouge">ActionSchemas</code> and a goal. The initial state consists of ground atoms (atomic sentences without variables). The goal is just like a precondition: a conjunction of literals.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Problem</span> <span class="o">{</span>
+    <span class="n">State</span> <span class="n">initialState</span><span class="o">;</span>
+    <span class="n">Set</span><span class="o">&lt;</span><span class="n">ActionSchema</span><span class="o">&gt;</span> <span class="n">actionSchemas</span><span class="o">;</span>
+    <span class="n">State</span> <span class="n">goalState</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>I will open a PR for these changes right away with a WIP label as I have to prepare for my practical exam tomorrow. My next job will be to add some syntactic sugar to these PDDL data types and connect them to the FOLParser.</p>
