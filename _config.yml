@@ -1,5 +1,5 @@
 # SITE CONFIGURATION
-baseurl: "/blog"
+baseurl: ""
 url: "https://samagra14.github.io"
 title: The solitary reaper # site's title
 description: "My life in general" # used by search engines
