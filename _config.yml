@@ -15,7 +15,7 @@ theme_settings:
 
   # Header and footer text
   header_text: > #two or three lines to describe your site
-     <p>You do not study mathematics because it helps you build a bridge. You study mathematics because it is the poetry of the universe. Its beauty transcends mere things.</p>
+     <p>Mathematics is the music of reason</p>
   header_text_feature_image: assets/img/pexels/triangular.jpeg
   footer_text: Glad to have met you.
   # Icons
