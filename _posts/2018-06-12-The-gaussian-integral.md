@@ -19,6 +19,7 @@ On further investigation I found out that $$ erf(x) $$ represents the [error fun
 $$ erf(x)\, = \frac{1}{\sqrt{\pi}}\int_{-x}^{x}e^{-t^2}\,dt $$
 
 Now, since the hopes of finding the indefinite integral were shattered. I went on to explore the methods of finding the original integral and came across a very elegant solution. The integral $$ \int_{-\infty}^{\infty} e^{-x^2} dx $$ can be calculated as follows :
+
 $$
   Let\, I = \int_{-\infty}^{\infty} e^{-x^2} dx
 

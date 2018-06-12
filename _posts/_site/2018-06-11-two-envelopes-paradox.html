@@ -1,0 +1,35 @@
+<p>You are handed two envelopes. and you are told that one of them contains
+m times as much money as the other, where m is an integer with  m greater than 1. You
+open one of the envelopes and look at the amount inside. You may now keep this
+amount, or you may switch envelopes and keep the amount in the other envelope.
+What is the best strategy?
+<!--more--></p>
+
+<p>This is a much-discussed puzzle in the theory of averages and probabilities. Well, our intuitive
+reasoning tells us that it doesn’t matter. There is no way of knowing which envelope to consider and this line of thought is absolutely fine. But now, think of the bigger picture. Suppose, you are asked to make this choice a million times. What would be your strategy then?</p>
+
+<p>You will definitely try to find some pattern and some cheats to maximise your money. Here comes math to the rescue. Mathematics tells us that the best strategy would be to always switch the envelope! How? Let’s have a look.</p>
+
+<p>First, let us mathematically formulate the situation. You are given an envelope that contains <script type="math/tex">\$ x</script>. There is a second envelope that may either contain <script type="math/tex">\$ mx</script> or <script type="math/tex">\$ x/m</script>. Now, you may choose either the second envelope or keep the first. Now, let us assume that you always change the envelope, what is the average amount (or the expected amount) that you earn?</p>
+
+<p>To calculate the average let’s make certain assumptions. The only assumption is that there is no bias towards any of the envelopes and hence, the second envelope might equally likely contain the possible values. So half of the times you will get an amount of <script type="math/tex">mx</script> and <script type="math/tex">x/m</script> for the other half.</p>
+
+<script type="math/tex; mode=display">\therefore Average = 1/2 \times mx + 1/2 \times x/m  = \frac{(m^2 + 1)x}{2m}</script>
+
+<p>Now clearly, <script type="math/tex">m^2 + 1 > 2m</script></p>
+
+<script type="math/tex; mode=display">\therefore Average = \frac{(m^2 + 1)x}{2m} \gt x</script>
+
+<p>This means that if we always chose the second envelope, then we have a profit on an average. Well, this seems absurd. Why would this happen?</p>
+
+<p>The result starts to make sense if we look at the relative loss and gain on choosing the second envelope. If the second envelope has less money, then our relative loss becomes:</p>
+
+<script type="math/tex; mode=display">\frac{\frac{x}{m}-x}{x} = \frac{-(m-1)}{m}</script>
+
+<p>Our, relative gain on the other hand is:</p>
+
+<script type="math/tex; mode=display">\frac{mx-x}{x} = (m-1)</script>
+
+<p>So, clearly, our relative gain is much larger (m times larger) than our relative loss. This means, that even if we lose half of the times, then also, our profit will be more than our loss. Hence, when we look at a large number of such experiments, then, by choosing the second envelope we are actually gaining money. And, hence the result.</p>
+
+<p>Math can surely act strangely at times.</p>

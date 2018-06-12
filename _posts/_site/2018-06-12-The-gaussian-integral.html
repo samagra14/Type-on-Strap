@@ -1,0 +1,48 @@
+<p>The Gaussian integral is probably one of the most important integrals in math, physics and of late computer science too.
+<!--more--></p>
+
+<p>So, today I was reading about random variables with a normal distribution and I came across this not so obvious integral <script type="math/tex">\int_{-\infty}^{\infty} e^{-x^2} dx</script>. Obviously, out of curiosity, I tried verifying the results by an unsuccessful attempt at integrating it. I tried several alternatives including integration by parts and various substitutions. Sadly, I could not even simplify it further. The integral only got more complex as I tried to simplify. So, I finally gave up and thought of reverse engineering the solution. So, I went to Wolfram Alpha and inquired about the solution and to my relief, this is what came out :</p>
+
+<script type="math/tex; mode=display">\int{e^{-x^2}}\,dx\, = \frac{1}{2}\sqrt{\pi}\,erf(x)</script>
+
+<p>On further investigation I found out that <script type="math/tex">erf(x)</script> represents the <a href="https://en.wikipedia.org/wiki/Error_function">error function</a> and it is quite complicated in nature. <a href="https://en.wikipedia.org/wiki/Risch_algorithm">The Risch algorithm</a> proves that no elementary function exists for the error function. This means that it cannot be represented as some simple arithmetic combination of our common functions. Mathematically, the <script type="math/tex">erf(x)</script> is defined as follows:</p>
+
+<script type="math/tex; mode=display">erf(x)\, = \frac{1}{\sqrt{\pi}}\int_{-x}^{x}e^{-t^2}\,dt</script>
+
+<p>Now, since the hopes of finding the indefinite integral were shattered. I went on to explore the methods of finding the original integral and came across a very elegant solution. The integral <script type="math/tex">\int_{-\infty}^{\infty} e^{-x^2} dx</script> can be calculated as follows :</p>
+
+<script type="math/tex; mode=display">Let\, I = \int_{-\infty}^{\infty} e^{-x^2} dx</script>
+
+<p>Now consider,</p>
+
+<script type="math/tex; mode=display">I^2 = \int_{-\infty}^{\infty} e^{-x^2}dx\, \int_{-\infty}^{\infty} e^{-x^2}dx</script>
+
+<script type="math/tex; mode=display">\quad= \int_{-\infty}^{\infty} e^{-x^2}dx \int_{-\infty}^{\infty} e^{-y^2}dy</script>
+
+<script type="math/tex; mode=display">\quad = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}e^{-(x^2 + y^2)}dx\,dy</script>
+
+<p>Looking at the form obtained, polar coordinate substitutions appear to be inevitable. So we substitute as follows:</p>
+
+<script type="math/tex; mode=display">x\, = \, r\cos\theta</script>
+
+<script type="math/tex; mode=display">y\, = r\sin\theta</script>
+
+<script type="math/tex; mode=display">\implies dx\,dy = \lvert J \lbrack r , \theta \rbrack \rvert dr\,d\theta = r dr d\theta</script>
+
+<p>Substituting it back in the integral we get</p>
+
+<script type="math/tex; mode=display">I^2 = \int_{-\infty}^{\infty}\int_{0}^{2\pi}e^{-r^2}d\theta\,rdr</script>
+
+<script type="math/tex; mode=display">\quad = \int_{-\infty}^{\infty}2\pi e^{-r^2}rdr</script>
+
+<p>On substituting <script type="math/tex">r^2 = p</script> we have</p>
+
+<script type="math/tex; mode=display">I^2 = \int_{0}^{\infty} \pi e^{-p}dp</script>
+
+<script type="math/tex; mode=display">\quad = \pi \lbrack e^{-p} \rbrack_{\infty}^{0}</script>
+
+<script type="math/tex; mode=display">\implies I^2 = \pi</script>
+
+<p>So, finally we get the following result :</p>
+
+<script type="math/tex; mode=display">\therefore \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}</script>
