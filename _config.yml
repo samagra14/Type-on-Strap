@@ -15,7 +15,7 @@ theme_settings:
 
   # Header and footer text
   header_text: > #two or three lines to describe your site
-     <p>Mathematics is the music of reason</p>
+     <p>Mathematics is as elegant as the finest of women.</p>
   header_text_feature_image: assets/img/pexels/triangular.jpeg
   footer_text: Glad to have met you.
   # Icons
