@@ -2,8 +2,8 @@
 layout: post
 title: Google Summer of Code Final Report                                # Title of the page
 subtitle: "My experiments with code"                    # A subtitle can be displayed below your title
-#feature-img: "assets/img/gsoc2016.jpg"              # Add a feature-image to the post
-#thumbnail: "assets/img/gsoc.png"   # Add a thumbnail image on blog view
+feature-img: "assets/img/pexels/book-glass.jpeg"              # Add a feature-image to the post
+thumbnail: "assets/img/pexels/book-glass.jpeg"   # Add a thumbnail image on blog view
 tags: [Artificial Intelligence,aimacode,gsoc]
 ---
 
